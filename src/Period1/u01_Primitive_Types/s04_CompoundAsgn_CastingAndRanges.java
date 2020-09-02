@@ -43,12 +43,29 @@ public class s04_CompoundAsgn_CastingAndRanges {
         int newX = (int)x; // "(int)" <== this is a casting operator
         System.out.println(newX); //result is 1 (the .7 just gets chopped off the 1.7)
 
-        double r = 1.5;
+        //
+        // Rounding posNum or negNum
+        //
+
+        double posNum = 1.4; // <--- Try to round this num
         //The smallest number that you would ever want to round up to 2, is 1.5.
-        int print = (int)(r+0.5);
+        int print = (int)(posNum+0.5);
+
         //if r is 1.5, then r+0.5=2.0 <== the "(int)" will chop off decimal and round up correctly
         //if r is 1.49, then r+0.5=1.99 <== the "(int)" will chop off decimal and round down correctly
-        System.out.println(print);
+        double negNum = -1.49; // <--- Try to round this num
+        print = (int)(negNum-0.5);
+
+        int maxValue = Integer.MAX_VALUE;
+        int minValue = Integer.MIN_VALUE;
+
+        // If something were to cause an integer to reach a larger (or smaller) value
+        // than the max (or min), then an integer overflow error occurs.
+
+
+        // If you try to divide by 0 in java, you get an ArithmeticException
+        System.out.println(8/0);
+
 
 
 
