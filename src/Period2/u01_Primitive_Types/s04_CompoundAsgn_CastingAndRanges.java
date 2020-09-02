@@ -54,6 +54,24 @@ public class s04_CompoundAsgn_CastingAndRanges {
         //      You can use (int), +, -, =, /, %, ()
         //          The random decimal # is the variable z
 
+        double z = 2.1;
+        System.out.println((int)(z+0.5)); //if z is positive
+        System.out.println((int)(z-0.5)); //if z is negative
+
+        // A few Last Things
+        // Error Messages
+
+        // ArithmeticException Error
+        //System.out.println(1/0);
+
+        //Overflow Error
+        System.out.println(Integer.MAX_VALUE);
+        //int i = 2147483648; //AirthmeticException error
+
+
+
+
+
 
 
 
