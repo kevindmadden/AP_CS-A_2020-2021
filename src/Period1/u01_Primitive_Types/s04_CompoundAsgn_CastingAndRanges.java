@@ -64,7 +64,9 @@ public class s04_CompoundAsgn_CastingAndRanges {
 
 
         // If you try to divide by 0 in java, you get an ArithmeticException
-        System.out.println(8/0);
+        //System.out.println(8/0);
+
+
 
 
 
