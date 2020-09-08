@@ -20,6 +20,8 @@ public class s05_ReadingKeyboardInput {
         String words = keyboard.nextLine();
         System.out.println("The words that you entered: " + words);
 
+        // File -> New ->
+
 
     }
 
