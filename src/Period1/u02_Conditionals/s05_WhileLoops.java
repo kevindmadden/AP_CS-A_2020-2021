@@ -34,5 +34,51 @@ public class s05_WhileLoops {
         //Two types of while loops: standard while loop, do while loop
 
 
+        int count = 0;
+        while(count < 100){
+            System.out.println("Welcome to Java!!");
+            System.out.println(count);
+            count++;
+        }
+
+        int sum = 0;
+        int i = 1;
+        while(i < 10){
+            sum = sum + i;
+            i++;
+        }
+        System.out.println(sum);
+
+        //          sum+ i = (NEW) sum
+        //1st: sum = 0 + 1 = 1
+        //2nd: sum = 1 + 2 = 3
+        //3rd: sum = 3 + 3 = 6
+        //4th: sum = 6 + 4 = 10
+        //...
+        //go until i=9, then stop
+        //Final result is 45.
+
+
+        //"INFINITE" loop
+        /*while(i < 11){
+            sum = sum + i;
+            System.out.println(sum);
+        }*/
+        //The reason why this loop isn't truly infinite is because eventually
+        // sum will have a value in it that is larger than the largest possible
+        // int value in java, which will cause an error
+        // You can print out the largest possible int value like this:
+        System.out.println(Integer.MAX_VALUE);
+
+        //Infinite loop
+        /*int j = 0;
+        while(j < 10){
+            System.out.println("Hello world");
+        }*/
+
+
+
+
+
     }
 }
