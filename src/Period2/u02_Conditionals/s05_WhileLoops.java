@@ -33,6 +33,47 @@ public class s05_WhileLoops {
 
         //Two types of while loops: standard while loop, do while loop
 
+        int count = 0;
+        while(count < 100){
+            System.out.println("This is a while loop");
+            System.out.println(count);
+            count++;
+        }
+        System.out.println("Whatever is next");
+
+        count = 0;
+        while(count < 100){
+            System.out.println("This is a while loop");
+            System.out.println(count);
+            count=count+10;
+        }
+        System.out.println("This while loop doesn't run as many times because count goes up faster.");
+
+        //Example of an infinite loop:
+        /*int i = 0;
+        while(i < 50){
+            System.out.println("Do something");
+            System.out.println(i);
+        }*/
+
+        int sum = 0;
+        int i = 1;
+        while(i < 10){
+            sum = sum + i;
+            i++;
+        }
+        System.out.print(sum);
+        //     sum + i;
+        //1st    0 + 1 = 1
+        //2nd    1 + 2 = 3
+        //3rd    3 + 3 = 6
+        //4th    6 + 4 = 10
+        //5th    ...
+        //         + 9 = 45
+
+
+
+
 
     }
 }
