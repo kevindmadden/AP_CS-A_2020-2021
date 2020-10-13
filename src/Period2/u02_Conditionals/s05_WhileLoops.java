@@ -13,7 +13,7 @@ public class s05_WhileLoops {
         /*
         Assignment:
             -Complete ALL 5.2 MPL exercises
-            -Skip 21214
+            -Skip 21214 (I should have had you skip 21212, 21007, 21009, as well... sorry)
             -Exercises 21007 and 21009 require you to compare strings. When
             comparing strings, use .equals() instead of ==. The syntax works like
             this:
