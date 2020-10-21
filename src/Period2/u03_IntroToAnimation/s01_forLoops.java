@@ -34,13 +34,6 @@ public class s01_forLoops {
                 step (2.) is false. At this point, the for-loop immediately stops running
                 and the code resumes running starting at the closing brace of the for-loop.
          */
-
-
-
-
-
-
-
     }
 
 }

@@ -7,41 +7,33 @@ public class s01_forLoops {
         //Simple While loop example
         int happinessLevel = 0;
         while(happinessLevel<5){
-            System.out.println("While loop: Happiness Level:" +happinessLevel);
-            System.out.println("While loop: Not happy yet");
+            System.out.println("(While Loop) Happiness Level:"+happinessLevel);
             happinessLevel++;
         }
-        System.out.println("While loop: Now happy");
 
-
-        //For-loop equivalent
-        boolean isHappy2 = false;
-      //for(        declaration;     condition;       control-variable;
-        for(int happinessLevel2=0; happinessLevel2<5; happinessLevel2++){
-            System.out.println("Happiness Level2:" +happinessLevel2);
-            System.out.println("Not happy yet2");
+        //For-loop example (similar to while-loop example)
+        //for  declare and set var;      condition          change
+        for(int happinessLevel2 = 0; happinessLevel2<5; happinessLevel2++){
+            System.out.println("(For loop) Happiness Level:" + happinessLevel2);
         }
-        System.out.println("Now happy");
 
+        //For-loop that immediately ends because the condition is false from the beginning
+        for(int i=0; i==500; i++){
+            System.out.println("i: "+i);
+        }
 
         /*
-        For loop Notes:
-        -Declaration: Declare a new variable and initialize it (variable for controlling the for-loop)
-        -Condition: Condition for what must be true in order to run the for-loop
-        -Control-variable: This is something that happens
-            each time you run the for-loop
-
-        Ordering:
-        -The declaration part happens immediately at the start and only at the start.
-        -The condition is checked every time the for-loop is run.
-            -The condition is checked the first time we run the for-loop.
-            -The condition is checked every subsequent time the for-loop is run.
-            -The condition is checked immediately after the control variable is altered (except for the first time)
-
-
+        For-Loop Ordering Notes:
+        1. Declare and initialize the variable (int happiness2 = 0;)
+        2. Immediately after this, the condition is checked.
+            -If the condition is true, the for-loop will run.
+            -If the condition is false, the for-loop will immediately stop
+        3. Once you reach the closing brace of the for-loop,
+                the change portion of the for-loop is run (happinessLevel2++).
+        4. Repeat steps (2.) and (3.) until you reach a point where the condition in
+                step (2.) is false. At this point, the for-loop immediately stops running
+                and the code resumes running starting at the closing brace of the for-loop.
          */
-
-
     }
 
 }
