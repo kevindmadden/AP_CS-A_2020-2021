@@ -5,12 +5,22 @@ public class s02_FirstAnimation {
         StdDraw.setScale(-2, +2);
         StdDraw.enableDoubleBuffering();
 
+
+        //snow falling
+
         for (double t = 0.0; true; t += 0.02) {
-            double x = Math.sin(t);
-            double y = Math.cos(t);
             StdDraw.clear();
-            StdDraw.filledCircle(x, y, 0.05);
-            StdDraw.filledCircle(-x, -y, 0.05);
+
+            if(t <= 2){
+                StdDraw.filledCircle(0,2-t*2,.1);
+            }else{
+                StdDraw.filledCircle(0,-2,.1);
+                if(t >= 2.5){
+                    t = 0;
+                }
+            }
+
+
             StdDraw.show();
             StdDraw.pause(20);
         }
