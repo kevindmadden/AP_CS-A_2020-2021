@@ -30,6 +30,6 @@ public class s02_FirstAnimation {
         int g = (int)(Math.random()*256);
         int b = (int)(Math.random()*256);
         System.out.println(r+", "+g+", "+b);
-        Period1.u03_IntroToAnimation.StdDraw.setPenColor(r,g,b);
+        StdDraw.setPenColor(r,g,b);
     }
 }
