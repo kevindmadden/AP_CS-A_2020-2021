@@ -6,11 +6,16 @@ public class s02_FirstAnimation {
         StdDraw.enableDoubleBuffering();
 
         //snow falling
-        setRandomColor();
+
         for (double t = 0.0; true; t += 0.02) {
             StdDraw.clear();
+            StdDraw.setPenColor(255,255,0);
+            StdDraw.filledRectangle(0,0,2,2);
 
             if(t <= 2){
+
+                // t*2 is the same thing as  time * velocity = distance
+                //                    t (seconds) * 2 (pixels per second) = a distance in pixels
                 StdDraw.filledCircle(0,2-t*2,.1);
             }else{
                 StdDraw.filledCircle(0,-2,.1);
@@ -23,6 +28,8 @@ public class s02_FirstAnimation {
             StdDraw.show();
             StdDraw.pause(20);
         }
+
+
     }
 
     public static void setRandomColor(){
