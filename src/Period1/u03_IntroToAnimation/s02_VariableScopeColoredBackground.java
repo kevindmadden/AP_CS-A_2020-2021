@@ -12,8 +12,6 @@ package Period1.u03_IntroToAnimation;
     -Difficulty: The color of the square is the same as the color of the circle.
  */
 
-import Period2.u03_IntroToAnimation.StdDraw;
-
 public class s02_VariableScopeColoredBackground {
     public static void main(String args[]){
         StdDraw.setScale(-2, +2);
@@ -48,10 +46,6 @@ public class s02_VariableScopeColoredBackground {
             StdDraw.pause(20);
         }
 
-
-    }
-
-    public static void setRandomColor(){
 
     }
 
