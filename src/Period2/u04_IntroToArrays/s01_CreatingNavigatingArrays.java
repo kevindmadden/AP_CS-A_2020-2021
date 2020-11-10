@@ -4,26 +4,38 @@ public class s01_CreatingNavigatingArrays {
 
     public static void main(String args[]){
 
-        // {6, 9, 30, 78, 5, 68}
-        //  0  1   2   3  4  5
-        // An Arrays is a list of stuff.
 
-        //Goal: Print out all 6 of these numbers
-        int[] firstArray = {6, 9, 30, 78, 5, 68};
+        // Array: List of the same kind of stuff
+        String[] videoGameTitles = {"COD", "Minecraft", "GTA", "Candy Crush Saga", "Mario Kart", "R6 Siege" };
+        // index values:               0            1      2                   3             4           5
+
+        // Goal: Print out each of the items in the array.
 
         //Long way to accomplish goal:
-        System.out.println( firstArray[0] );
-        System.out.println( firstArray[1] );
-        System.out.println( firstArray[2] );
-        System.out.println( firstArray[3] );
-        System.out.println( firstArray[4] );
-        System.out.println( firstArray[5] );
-        //System.out.println( firstArray[6] ); //Don't do this! OutOfBoundsException Error
+        System.out.println( videoGameTitles[0] );
+        System.out.println( videoGameTitles[1] );
+        System.out.println( videoGameTitles[2] );
+        System.out.println( videoGameTitles[3] );
+        System.out.println( videoGameTitles[4] );
+        System.out.println( videoGameTitles[5] );
 
         //Short way to accomplish goal:
-        for(int i = 0; i < 6; i++){
-            System.out.println( firstArray[i] );
+        for(int i=0; i<6; i++){
+            System.out.println( videoGameTitles[i] );
         }
+
+        // https://csawesome.runestone.academy/runestone/books/published/csawesome/Unit6-Arrays/topic-6-1-array-basics.html#using-new-to-create-arrays
+        // So there are a couple different ways to create a new array:
+        String[] ex1 = {"COD", "Minecraft", "GTA", "Candy Crush Saga", "Mario Kart", "R6 Siege" };
+        int[] ex2 = new int[6]; //creates an int array with 6 items that are the default values
+        System.out.println(ex2[3]);
+        // When you create an array like ex2, the array gets filled up with default values that depend on whatever
+        //  the data type is.
+        // Default Values:
+        // String - null
+        // int - 0
+        // double - 0.0
+        // boolean - false
 
 
 
