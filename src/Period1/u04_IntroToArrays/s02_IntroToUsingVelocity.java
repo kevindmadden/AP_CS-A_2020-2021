@@ -10,14 +10,15 @@ public class s02_IntroToUsingVelocity {
         //  at a speed of 10 miles per second, how far has the ball traveled in 5 second?
         //new position = 0 + (10miles/sec)*5sec
         //new position = 50 miles
-        // Example 2: You are driving down the highway at 60mph. How far do you travel in 2 hours?
-        //  Answer: 60mph*2hrs = 120 miles
+        // Example 2: You have already driven 100 miles today. You are driving down the highway at 60mph.
+        // How far will you have traveled today assuming two hours have passed since you started driving at 60mph?
+        //  Answer: 100+60mph*2hrs = 220 miles
 
         StdDraw.setScale(-0.0, +10.0);
         StdDraw.enableDoubleBuffering();
 
         double yPos = 0;
-        double yVel = 1.5; //1.5 pixels per frame
+        double yVel = 1.5; //1.5 pixels per sec
 
 
         double dt = 0.017; //delta time - the number of seconds between each frame (think of this as timeElapsed) - 0.017 milliseconds is the same as 60fps
