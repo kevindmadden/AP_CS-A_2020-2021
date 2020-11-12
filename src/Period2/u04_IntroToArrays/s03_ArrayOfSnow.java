@@ -9,16 +9,17 @@ public class s03_ArrayOfSnow {
         /* Initial Values */
 
         //Hold yVel constant
-        double yVel = 10; //px/sec
+        double yVel = 100; //px/sec
 
         //Randomize xPos, yPos
         double xPos = Math.random()*100;
         double yPos = Math.random()*100;
 
         // Fill up array with random values
-        double[] yPosSnowflakes = new double[10];
-        double[] xPosSnowflakes = new double[10];
-        for(int i = 0; i < 10; i++){
+        double[] yPosSnowflakes = new double[100];
+        double[] xPosSnowflakes = new double[100];
+
+        for(int i = 0; i < yPosSnowflakes.length; i++){
             yPosSnowflakes[i] = Math.random()*100;
             xPosSnowflakes[i] = Math.random()*100;
         }
@@ -30,14 +31,14 @@ public class s03_ArrayOfSnow {
             StdDraw.filledSquare(50,50,50);
 
             StdDraw.setPenColor(StdDraw.WHITE);
-
-            /* For Single Snowflake:
-            yPos = yPos - yVel*dt;
-            StdDraw.filledCircle(xPos, yPos, 1); */
-
-            for(int i = 0; i<10; i++){
+            for(int i = 0; i<yPosSnowflakes.length; i++){
                 yPosSnowflakes[i] = yPosSnowflakes[i] - yVel*dt;
-                StdDraw.filledCircle(xPosSnowflakes[i], yPosSnowflakes[i],1);
+                StdDraw.filledCircle(xPosSnowflakes[i], yPosSnowflakes[i],.5);
+                if(yPosSnowflakes[i] < -1){
+                    yPosSnowflakes[i] = 101;
+                    xPosSnowflakes[i] = Math.random()*100;
+                }
+
             }
 
 
