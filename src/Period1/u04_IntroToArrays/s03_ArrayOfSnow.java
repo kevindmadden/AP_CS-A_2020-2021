@@ -40,7 +40,12 @@ public class s03_ArrayOfSnow {
                 StdDraw.filledCircle(xPos,yPos,1); */
             for(int i = 0; i < snowHeight.length; i++){
                 snowHeight[i] = snowHeight[i] - yVel*dt;
-                StdDraw.filledCircle(snowXPos[i],snowHeight[i],1);
+                StdDraw.filledCircle(snowXPos[i],snowHeight[i],.3);
+                snowXPos[i] = snowXPos[i] + (Math.random()-0.5)*.5;
+
+                if(snowHeight[i] < 0){
+                    snowHeight[i] = snowHeight[i] + 110;
+                }
             }
 
 
