@@ -1,29 +1,47 @@
+import java.util.*;
 public class Scrap {
+    public static void main(String args[]){
 
-    public static void main(String[] args) {
-        double a = 200;
-        StdDraw.setScale(0, +a);
+        StdDraw.setScale(-0.0, +10.0);
         StdDraw.enableDoubleBuffering();
-        StdDraw.setPenRadius(0.005);
-        StdDraw.setPenColor(11,103,177);
 
-        double rainX = (Math.random() * a);
-        double rainX2 = (Math.random() * a);
-        for (double t = 0.0; true; t += 5) {
 
-            StdDraw.clear();
-            StdDraw.line(rainX - 0.1 * t, 200 - t, rainX + 2 - 0.1 * t, 200 + 5 - t);
-            StdDraw.line(rainX2 - 0.1 * t, 200 - t, rainX2 + 2 - 0.1 * t, 200 + 5 - t);
-            StdDraw.show();
-            StdDraw.pause(20);
-            t += 5;
+        double xPos = 0;
+        double xVel = 1.5;
 
-            if(t>200) {
-                t = 0.0;
-                rainX = (Math.random() * a);
-                rainX2 = (Math.random() * a);
+        double[] squaresHeights = new double[100];
+        double[] squaresPos = new double[100];
 
-            }
+        for(int i = 0; i < squaresHeights.length; i++){
+            squaresHeights[i] = Math.random()*100;
+            squaresPos[i] = Math.random()*100;
         }
+
+
+        double dt = 0.017;
+        while(true){
+            StdDraw.clear();
+
+            xPos = xPos + xVel*dt;
+            //Call method setPenColor
+            StdDraw.filledSquare(5, 5, 5);
+
+
+            for(int i = 0; i < squaresHeights.length; i++){
+                squaresHeights[i] = squaresHeights[i] - xVel*dt;
+                //Call method setPenColor
+                StdDraw.filledSquare(squaresPos[i],squaresHeights[i],.3);
+                squaresPos[i] = squaresPos[i] + (Math.random()-0.5)*.5;
+
+                if(squaresHeights[i] < 0){
+                    squaresHeights[i] = squaresHeights[i] + 110;
+                }
+            }
+
+            StdDraw.show();
+            StdDraw.pause((int)(dt*1000));
+        }
+
+
     }
 }
