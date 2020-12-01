@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project #05 - Calculator</title>
+</head>
+<body>
+<strong><em>Submit on codepost!!!!</em></strong>
+<h1>Project #05 - Calculator</h1>
+
+</p>
+<h2>Requirements:</h2>
+Your calculator must have the following methods:
+        <ol>
+            <li><code>addition</code>  two double parameters; return double result</li>
+            <li><code>subtraction</code>  two double parameters (the result is the first parameter minus the second parameter); return double result</li>
+            <li><code>multiplication</code>  two double parameters; return double result</li>
+            <li><code>division</code>  two double parameters called <code>num1</code> and <code>num2</code>; if <code>num2</code> is <code>0</code>, then immediately return the value <code>666.666</code>-- otherwise, do the division as normal and return the double result</li>
+            <li><code>square</code>  <strong>one</strong> double parameter; hint- use <code>Math.pow(double base, double exponent)</code> method; return double result</li>
+            <li><code>isPerfectSquare</code>  one <strong>double</strong> parameter: return <strong>boolean</strong> value; hint: this method should check if a number if a perfect square... this info should be helpful...
+                <ul>
+                    <li>Remember, perfect squares are numbers such as 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, etc. This is because when you take the square root of these numbers, you get an integer (i.e., a number without decimals).</li>
+                    <li>Use Math.sqrt(double num) to take the square root of a number.</li>
+                    <li>If the double value <code>num</code> is an integer (i.e. has only 0's for a decimal), then the condition <code>num % 1 == 0</code> will be <code>true</code>.</li>
+                </ul>
+            </li>
+            <li><code>squareRootWithTrick</code> one <strong>double</strong> parameter called <code>num</code>; return double result; this method you write should do the following:
+                <ul>
+                    <li>Call the method you just wrote to determine whether the number is a perfect square!!!</li>
+                    <li>If <code>num</code> is <strong>not</strong> a perfect square, then take the square root of the number, and return the result.</li>
+                    <li>If <code>num</code> <em>is</em> a perfect square, then return <code>num</code>. In other words, do not return the square root of <code>num</code>. Just return <code>num</code> without doing anything to it!! <strong>&lt;--- This is the trick!!!</strong></li>
+                </ul>
+            </code></li>
+        </ol>
+
+<h2>Some tips:</h2>
+<ul>
+    <li>All I've asked you to do is write the methods. In other words, you don't need to build any sort of user interface to make the calculator usable. This isn’t a calculator that someone other than a programmer who knows how to call methods can use . <strong>You don't need a Scanner.</strong> You are not making a functioning calculator.</li>
+    <li>In your main method, you can call the calculator's methods as a way of testing them. However, when you turn your project in your main methods should be completely empty.</li>
+    <li>All the methods that you write should have <code>public static</code> in front of them like you've seen in class.</li>
+</ul>
+<h2>Reminder:</h2>
+<ul>
+    <li>When you write these methods, they should be outside of the <code>main</code> method but still inside of the outermost pair of { }.</li>
+    <li>Tell me if you need help. I want to help you. That's why I'm a teacher.</li>
+</ul>
+</body>
+</html>

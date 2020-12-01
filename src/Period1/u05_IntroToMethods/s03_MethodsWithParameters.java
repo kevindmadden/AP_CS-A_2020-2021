@@ -50,5 +50,16 @@ public class s03_MethodsWithParameters {
     }
 
 
+    public static class s04_MethodsReview {
+        public static void main(String args[]){
+            System.out.println("hello");
 
+        }
+
+        public static int add(int num1, int num2){
+            int result = num1+num2;
+            return result;
+        }
+
+    }
 }

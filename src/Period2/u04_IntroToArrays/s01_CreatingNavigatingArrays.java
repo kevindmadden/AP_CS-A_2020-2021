@@ -24,6 +24,14 @@ public class s01_CreatingNavigatingArrays {
             System.out.println( videoGameTitles[i] );
         }
 
+        // Length of an Array - The length of an array is the number of items in the array.
+        System.out.println(videoGameTitles.length); //The array videoGameTitles is length 6. So this prints out 6.
+
+        //So we could rewrite the above for loop like so:
+        for(int i=0; i<videoGameTitles.length; i++){
+            System.out.println( videoGameTitles[i] );
+        }
+
         // https://csawesome.runestone.academy/runestone/books/published/csawesome/Unit6-Arrays/topic-6-1-array-basics.html#using-new-to-create-arrays
         // So there are a couple different ways to create a new array:
         String[] ex1 = {"COD", "Minecraft", "GTA", "Candy Crush Saga", "Mario Kart", "R6 Siege" };

@@ -25,6 +25,14 @@ public class s01_CreatingNavigatingArrays {
             System.out.println( firstArray[i] );
         }
 
+        //Array.length (number of items in the array)
+        System.out.println(firstArray.length); //number of items in the array: 6
+
+        //So the above for-loop could be modified to look like this:
+        for(int i = 0; i < firstArray.length; i++){
+            System.out.println( firstArray[i] );
+        }
+
 
         //How to create a new array:
         int[] ex1 = {6, 9, 30, 78, 5, 68}; //Fills the array up with some numbers
