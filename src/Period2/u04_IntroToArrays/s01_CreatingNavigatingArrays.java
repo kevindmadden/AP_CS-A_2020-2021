@@ -9,6 +9,8 @@ public class s01_CreatingNavigatingArrays {
         String[] videoGameTitles = {"COD", "Minecraft", "GTA", "Candy Crush Saga", "Mario Kart", "R6 Siege" };
         // index values:               0            1      2                   3             4           5
 
+
+
         // Goal: Print out each of the items in the array.
 
         //Long way to accomplish goal:

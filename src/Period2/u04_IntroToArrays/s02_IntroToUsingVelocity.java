@@ -8,7 +8,9 @@ public class s02_IntroToUsingVelocity {
 
         double yPos = 5;
         double yVel = 2; //2 units per sec
-        double dt = 0.017; //dt=delta time (delta means change) -- in other words, 0.017 seconds between each frame
+
+        //If we have only 0.017 seconds between each frame, then we will be at approximately 60fps. (In other words, 1.0/60 equals about 0.017.)
+        double dt = 0.017; //dt=delta time (delta means change) -- in other words, 0.017 seconds between each frame.
 
         while(true){
             StdDraw.clear();
