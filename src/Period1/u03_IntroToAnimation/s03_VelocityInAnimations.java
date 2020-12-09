@@ -35,4 +35,6 @@ public class s03_VelocityInAnimations {
             StdDraw.pause((int)(dt*1000)); //StdDraw.pause expects the units to be in milliseconds, not seconds
         }
     }
+
+
 }
