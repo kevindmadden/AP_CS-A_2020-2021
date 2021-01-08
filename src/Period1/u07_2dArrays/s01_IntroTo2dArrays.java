@@ -1,7 +1,5 @@
 package Period1.u07_2dArrays;
 
-import Period2.u04_IntroToArrays.StdDraw;
-
 public class s01_IntroTo2dArrays {
 
     //public static final int NUM_OF_ROWS = 3;
