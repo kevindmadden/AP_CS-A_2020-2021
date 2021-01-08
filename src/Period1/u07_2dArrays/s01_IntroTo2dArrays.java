@@ -21,7 +21,7 @@ public class s01_IntroTo2dArrays {
             StdDraw.square(50,50,50);
 
             //Draw Board
-            for(int x=1; x<=5; x+=2){ //i+=2 same as i=i+2
+            for(int x=1; x<=5; x+=2){
                 StdDraw.square(100*(x/6.0), 100*(1/6.0), 100*(1/6.0));
             }
 
