@@ -17,11 +17,11 @@ public class s01_IntroTo2dArrays {
             StdDraw.clear();
 
             //Draw Board:
-            for(int i = 1; i<=5; i+=2){ //i+=2 is the same as i=i+2
-                StdDraw.square(100*(i/6.0), 100*(1/6.0), 100*(1/6.0) );
+            for(int x = 1; x<=5; x+=2){ //i+=2 is the same as i=i+2
+                for(int y = 1; y<=5; y+=2){
+                    StdDraw.square(100*(x/6.0), 100*(y/6.0), 100*(1/6.0) );
+                }
             }
-
-
 
             StdDraw.show();
             StdDraw.pause((int)(timeElapsed*1000));
