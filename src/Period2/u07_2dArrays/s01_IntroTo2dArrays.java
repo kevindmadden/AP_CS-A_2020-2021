@@ -16,11 +16,27 @@ public class s01_IntroTo2dArrays {
         while(true){
             StdDraw.clear();
 
-            //Draw Board:
-            for(int x = 1; x<=5; x+=2){ //i+=2 is the same as i=i+2
+            //Draw Board Grid
+            for(int x = 1; x<=5; x+=2){
                 for(int y = 1; y<=5; y+=2){
                     StdDraw.square(100*(x/6.0), 100*(y/6.0), 100*(1/6.0) );
                 }
+            }
+
+            //Draw Board X's and o's
+            for(int x = 0; x <= 2; x++){
+                for(int y = 0; y <= 2; y++){
+                    if(board[x][y].equals("o")){
+
+                    }
+                }
+            }
+
+
+            if(StdDraw.isMousePressed()){
+                int xClicked = (int) (StdDraw.mouseX()/33.3333333);
+                int yClicked = (int) (StdDraw.mouseY()/33.3333333);
+                board[xClicked][yClicked] = "o";
             }
 
             StdDraw.show();
