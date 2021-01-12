@@ -11,6 +11,11 @@ public class s01_IntroTo2dArrays {
 
         /* Initial Values */
         String[][] board = new String[3][3];
+        //Two ways of dealing with the default null values that are present in String arrays
+        //1. Doing a null check - Check to see if the String is not null before running anything else (short-circuiting)
+        //2. Choose a different default value!!! (So that you don't have to worry about handling null!)
+
+        String mostRecentlyPlaced = "";
 
         double timeElapsed = 0.017; //formerly called "dt". This is number of seconds between each frame of the animation -  0.017 milliseconds is the same as 60fps
         while(true){
@@ -23,11 +28,11 @@ public class s01_IntroTo2dArrays {
                 }
             }
 
-            //Draw Board X's and o's
+            //Draw Board x's and o's
             for(int x = 0; x <= 2; x++){
                 for(int y = 0; y <= 2; y++){
-                    if(board[x][y].equals("o")){
-
+                    if(board[x][y]!=null && board[x][y].equals("o")){
+                        StdDraw.circle(x*33.333333+33.333333*0.5, y*33.333333+33.333333*0.5, 10);
                     }
                 }
             }
