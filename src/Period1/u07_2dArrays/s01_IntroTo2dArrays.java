@@ -24,12 +24,18 @@ public class s01_IntroTo2dArrays {
 
         String mostRecentlyPlaced = ""; //We intend to use this to keep track of whether an x or o was placed on the board on the previous turn
 
+        boolean isMousePressedTracker = false;
+        boolean didClickOccur = false;
 
         double timeElapsed = 0.017; //formerly called "dt". This is number of seconds between each frame of the animation -  0.017 milliseconds is the same as 60fps
         while(true){
             StdDraw.clear();
             StdDraw.setPenColor(StdDraw.BLACK);
             StdDraw.square(50,50,50);
+
+            /* * * * * * * * * * * *
+                Drawing
+             * * * * * * * * * * * */
 
             //Draw Board - Draws Grid
             for(int x=1; x<=5; x+=2){
@@ -47,13 +53,41 @@ public class s01_IntroTo2dArrays {
             }
 
 
+            /* * * * * * * * * * * *
+                User Input
+             * * * * * * * * * * * */
+
             if(StdDraw.isMousePressed()){
+                System.out.println("click occurring...");
+            }
+
+            if(StdDraw.isMousePressed()){
+                isMousePressedTracker = true;
+            }
+            if(!StdDraw.isMousePressed()){
+                if(isMousePressedTracker){
+                    System.out.println("Click occurred!");
+                    didClickOccur = true;
+                    isMousePressedTracker = false;
+                }
+            }
+
+            if(didClickOccur){
+                didClickOccur = false;
+
                 System.out.println("x:"+StdDraw.mouseX()+" y:"+StdDraw.mouseY());
                 int xClicked = (int)(StdDraw.mouseX()/33.333333);
                 int yClicked = (int)(StdDraw.mouseY()/33.333333);
-                System.out.println(xClicked+", "+yClicked);
+                System.out.println("board["+xClicked+"]["+yClicked+"]");
                 board[xClicked][yClicked] = "o";
             }
+
+            // 1. Track when click occurs: StdDraw.isMousePressed() - either true or false
+            //      -When you click down initially, changes from false => true
+            //      -When you click "up" initially, changes from true => false
+            //      -You could use these properties to track when a single click has occured
+            // 2. If the space is already filled, "ignore" that click.
+
 
 
 
