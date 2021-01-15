@@ -23,6 +23,7 @@ public class s01_IntroTo2dArrays {
         }
 
         String mostRecentlyPlaced = ""; //We intend to use this to keep track of whether an x or o was placed on the board on the previous turn
+        String pieceToPlaceNext = "o";
 
         boolean isMousePressedTracker = false;
         boolean didClickOccur = false;
@@ -34,7 +35,7 @@ public class s01_IntroTo2dArrays {
             StdDraw.square(50,50,50);
 
             /* * * * * * * * * * * *
-                Drawing
+                Drawing (View)
              * * * * * * * * * * * */
 
             //Draw Board - Draws Grid
@@ -48,13 +49,27 @@ public class s01_IntroTo2dArrays {
                 for(int y=0; y<=2; y++){
                     if(board[x][y].equals("o")){ //NULL POINTER EXCEPTION FIX: Replaced all default null values in String array with ""
                         StdDraw.circle(x*33.3333+16.66665, y*33.3333+16.66665,10);
+                    }else if(board[x][y].equals("x")){
+                        StdDraw.line(x*33.3333+5,y*33.3333+5,x*33.3333+28,y*33.3333+28);
+                        StdDraw.line(x*33.3333+5,y*33.3333+28,x*33.3333+28,y*33.3333+5);
                     }
                 }
             }
 
+            /* * * * * * * * * * * *
+                Game Logic (Model)
+             * * * * * * * * * * * */
+            if(mostRecentlyPlaced.equals("o")){
+                pieceToPlaceNext = "x";
+            }
+            if(mostRecentlyPlaced.equals("x")){
+                pieceToPlaceNext = "o";
+            }
+
+
 
             /* * * * * * * * * * * *
-                User Input
+                User Input (Controller)
              * * * * * * * * * * * */
 
             if(StdDraw.isMousePressed()){
@@ -72,14 +87,16 @@ public class s01_IntroTo2dArrays {
                 }
             }
 
+            //Section that runs when clicks occur
             if(didClickOccur){
                 didClickOccur = false;
 
-                System.out.println("x:"+StdDraw.mouseX()+" y:"+StdDraw.mouseY());
+                //System.out.println("x:"+StdDraw.mouseX()+" y:"+StdDraw.mouseY()); //log
                 int xClicked = (int)(StdDraw.mouseX()/33.333333);
                 int yClicked = (int)(StdDraw.mouseY()/33.333333);
-                System.out.println("board["+xClicked+"]["+yClicked+"]");
-                board[xClicked][yClicked] = "o";
+                //System.out.println("board["+xClicked+"]["+yClicked+"]"); //log
+                board[xClicked][yClicked] = pieceToPlaceNext; //officially add the piece to the array
+                mostRecentlyPlaced = pieceToPlaceNext;
             }
 
             // 1. Track when click occurs: StdDraw.isMousePressed() - either true or false

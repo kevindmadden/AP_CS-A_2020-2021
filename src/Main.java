@@ -1,43 +1,34 @@
+import java.util.Random;
+
 public class Main {
-
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        StdDraw.setScale(-0.0, +100.0);
+    public static void main(String args[]){
+        StdDraw.setScale(-0.0, +10.0);
         StdDraw.enableDoubleBuffering();
-
-        double xVel = 10;
-        double[] Height = new double[100];
-        double[] Xpos = new double[100];
-        //new position = old position + velocity * time
-        double dt = 0.017;
-        for(int i = 0; i < Xpos.length; i++) {
-            Height[i] = Math.random()*100;
-            Xpos[i] = Math.random()*100;
-        }
+        double x = randomNum();
+        double y = 9.0;
 
 
-        while(true) {
-            StdDraw.clear();
-            StdDraw.setPenColor(StdDraw.BLACK);
-            StdDraw.filledSquare(50,  50,  50);
-            StdDraw.setPenColor(StdDraw.WHITE);
-
-            for(int i = 0; i < Xpos.length; i++) {
-                Height[i] = Height[i] - xVel*dt;
-                StdDraw.filledSquare(Xpos[i], Height[i], .5);
-                Xpos[i] = Xpos[i] + (Math.random()-0.5)*.5;
-                //Math.random(); gives number between 0 and 1
-                if(Height[i] < 0) {
-                    Height[i] = Height[i] + 110;
-                }
-
-            }
-
+        while(true){
+            StdDraw.filledSquare(x,y,0.25);
+            StdDraw.filledSquare(x+0.5,y+0.5,0.25);
+            StdDraw.filledSquare(x-2,y-0.25,0.25);
+            StdDraw.filledSquare(x-2.54,y-1.5,0.25);
+            StdDraw.filledSquare(x-1.24,y-1.12,0.25);
 
             StdDraw.show();
-            StdDraw.pause((int)(dt*1000));
-        }
+            StdDraw.pause(17);
+            StdDraw.clear();
 
+            x = x - 0.25;
+            if (x < 0.0){
+                x = 9.0;
+                y = randomNum();
+            }
+        }
     }
 
+    public static int randomNum(){
+        Random rand = new Random();
+        return rand.nextInt(8);
+    }
 }
