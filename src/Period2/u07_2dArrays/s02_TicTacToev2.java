@@ -1,6 +1,6 @@
 package Period2.u07_2dArrays;
 
-public class s01_TicTacToe {
+public class s02_TicTacToev2 {
 
     public static void main(String args[]){
 
@@ -12,6 +12,11 @@ public class s01_TicTacToe {
         //Two ways of dealing with the default null values that are present in String arrays
         //1. Doing a null check - Check to see if the String is not null before running anything else (short-circuiting)
         //2. Choose a different default value!!! (So that you don't have to worry about handling null!)
+        for(int row = 0; row<3; row++){
+            for(int col = 0; col<3; col++){
+                board[row][col] = "";
+            }
+        }
 
         String mostRecentlyPlaced = "";
         String pieceToPlaceNext = "o";
@@ -37,9 +42,9 @@ public class s01_TicTacToe {
             //Draw Board x's and o's
             for(int x = 0; x <= 2; x++){
                 for(int y = 0; y <= 2; y++){
-                    if(board[x][y]!=null && board[x][y].equals("o")){
+                    if(board[x][y].equals("o")){
                         StdDraw.circle(x*33.333333+33.333333*0.5, y*33.333333+33.333333*0.5, 10);
-                    }else if(board[x][y]!=null && board[x][y].equals("x")){
+                    }else if(board[x][y].equals("x")){
                         StdDraw.line(x*33.333333+5, y*33.333333+5, x*33.333333+28,y*33.333333+28);
                         StdDraw.line(x*33.333333+5, y*33.333333+28, x*33.333333+28,y*33.333333+5);
                     }
@@ -61,8 +66,11 @@ public class s01_TicTacToe {
             //board[1][0] board[1][1] board[1][2]
             //board[2][0] board[2][1] board[2][2]
 
-            //Code block C was replaced with code block B. Code block B was replaced with code block A.
-            //Code Block A
+            //3 vertical columns
+            //board[0][0] board[1][0] board[2][0]
+            //board[0][1] board[1][1] board[2][1]
+            //board[0][2] board[1][2] board[2][2]
+
             for(int i=0; i<2; i++){
                 String player = "o";
                 if(i==1){
@@ -73,45 +81,13 @@ public class s01_TicTacToe {
                         System.out.println(player+" wins!");
                     }
                 }
+                for(int col = 0; col<3; col++){
+                    if(board[0][col].equals(player) && board[1][col].equals(player) && board[2][col].equals(player)){
+                        System.out.println(player+" wins!");
+                    }
+                }
             }
 
-            //Code Block B
-            /*for(int i=0; i<2; i++){
-                String player = "o";
-                if(i==1){
-                    player = "x";
-                }
-                if(board[0][0].equals(player) && board[0][1].equals(player) && board[0][2].equals(player)){
-                    System.out.println(player+" wins!");
-                }
-                if(board[1][0].equals(player) && board[1][1].equals(player) && board[1][2].equals(player)){
-                    System.out.println(player+" wins!");
-                }
-                if(board[2][0].equals(player) && board[2][1].equals(player) && board[2][2].equals(player)){
-                    System.out.println(player+" wins!");
-                }
-
-            }*/
-
-            //Code Block C
-            /*if(board[0][0].equals("o") && board[0][1].equals("o") && board[0][2].equals("o")) {
-                System.out.println("o wins!");
-            }
-            if(board[0][0].equals("x") && board[0][1].equals("x") && board[0][2].equals("x")){
-                System.out.println("x wins!");
-            }
-            if(board[1][0].equals("o") && board[1][1].equals("o") && board[1][2].equals("o")) {
-                System.out.println("o wins!");
-            }
-            if(board[1][0].equals("x") && board[1][1].equals("x") && board[1][2].equals("x")){
-                System.out.println("x wins!");
-            }
-            if(board[2][0].equals("o") && board[2][1].equals("o") && board[2][2].equals("o")) {
-                System.out.println("o wins!");
-            }
-            if(board[2][0].equals("x") && board[2][1].equals("x") && board[2][2].equals("x")){
-                System.out.println("x wins!");
-            }*/
 
 
 
