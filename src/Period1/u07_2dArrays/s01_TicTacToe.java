@@ -61,6 +61,48 @@ public class s01_TicTacToe {
             if(mostRecentlyPlaced.equals("x")){
                 pieceToPlaceNext = "o";
             }
+            //board[row][column] (8 possible ways to win)
+            //board[0][0], board[0][1], board[0][2]
+            //board[1][0], board[1][1], board[1][2]
+            //board[2][0], board[2][1], board[2][2]
+
+            //board[0][0], board[1][0], board[2][0]
+            //board[0][1], board[1][1], board[2][1]
+            //board[0][2], board[1][2], board[2][2]
+
+            for(int i = 0; i<2; i++){
+                String player = "o";
+                if(i==1){
+                    player = "x";
+                }
+
+                /*
+                The first for-loop code block below is equivalent to the code in this comment:
+
+                if(board[0][0].equals(player) && board[0][1].equals(player) && board[0][2].equals(player)){
+                    System.out.println(player+ " wins!!");
+                }
+                if(board[1][0].equals(player) && board[1][1].equals(player) && board[1][2].equals(player)){
+                    System.out.println(player+ " wins!!");
+                }
+                if(board[2][0].equals(player) && board[2][1].equals(player) && board[2][2].equals(player)){
+                    System.out.println(player+ " wins!!");
+                }
+                 */
+                for(int row = 0; row < 3; row++){
+                    if(board[row][0].equals(player) && board[row][1].equals(player) && board[row][2].equals(player)){
+                        System.out.println(player+ " wins!!");
+                    }
+                }
+
+                for(int col = 0; col < 3; col++){
+                    if(board[0][col].equals(player) && board[1][col].equals(player) && board[2][col].equals(player)){
+                        System.out.println(player+ " wins!!");
+                    }
+                }
+
+            }
+
 
 
 

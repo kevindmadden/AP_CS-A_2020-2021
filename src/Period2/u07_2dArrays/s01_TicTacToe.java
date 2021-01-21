@@ -16,7 +16,6 @@ public class s01_TicTacToe {
         String mostRecentlyPlaced = "";
         String pieceToPlaceNext = "o";
 
-
         boolean isMousePressedTracker = false;
         boolean didClickOccur = false;
 
