@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project #06 - Connect 4 Game</title>
+</head>
+<body>
+    <h1>Project #06 - Connect 4 Game</h1>
+    <h2>Submission:</h2>
+    Submit on <a href="https://codepost.io">codepost.io</a>.
+    <h2>Description:</h2>
+        Code the game Connect 4. If you are unfamiliar with the game Connect 4, here is a link to the basic rules: <a href="https://www.ludoteka.com/clasika/connect-4.html">https://www.ludoteka.com/clasika/connect-4.html</a>. You can also play the game for yourself at this link: <a href="https://www.coolmathgames.com/0-4-in-a-row">https://www.coolmathgames.com/0-4-in-a-row</a>.
+    </p>
+    <h2>Requirements:</h2>
+    <ol>
+        <li>Before you start coding, please be sure to play Connect 4 at least once if you have never played before.</li>
+        <li>The game should follow all the rules of Connect 4. The rules include (but are not limited to) the following: </li>
+        <ol type="A">
+            <li>The board should have 6 rows and 7 columns.</li>
+            <li>Randomly choose which player goes first.</li>
+            <li>Players alternate turns.</li>
+            <li>Each time a player has a turn, they must drop one piece into a column of their choice.</li>
+            <li>When a piece is dropped in a column, that piece should fall to the lowest possible spot in that column.</li>
+            <li>Players cannot drop pieces into columns that are already filled up.</li>
+            <li>The game is over whenever the first player connects four in a row either vertically, horizontally, or diagonally (note that there are two possible diagonal directions: [1] Lower-left to upper-right, and [2] Upper-left to lower-right).</li>
+            <li>No additional pieces can be played once the game is over.</li>
+            <li>Ties are possible. This happens when the board is completely filled up with pieces and neither player has four in a row.</li>
+        </ol>
+        <li>Specific Coding Requirements</li>
+        <ol type="A">
+            <li>The board must be a 2D <code>int</code> array called <code>board</code>.</li>
+            <li>The 2D array <code>board</code> should always have one of three possible values in each spot:</li>
+            <ul>
+                <li><code>0</code>- if there is no piece at that spot.</li>
+                <li><code>1</code>- if player 1's piece is at the spot.</li>
+                <li><code>2</code>- if player 2's piece is at the spot.</li>
+            </ul>
+            <li>You must have the following method declaration in your code.<pre>public static int checkForWinner (int[][] board)</pre> When you call this method, you must pass <code>board</code> as a parameter. The method should return the following <code>int</code> values once you have scanned through the <code>board</code>:</li>
+            <ul>
+                <li><code>0</code>- if there is no winner.</li>
+                <li><code>1</code>- if player 1 is the winner.</li>
+                <li><code>2</code>- if player 2 is the winner.</li>
+                <li><code>3</code>- if there is a tie.</li>
+            </ul>
+        </ol>
+    </ol>
+    <h2>Tips:</h2>
+    <ul>
+        <li>People sometimes find it helpful to get the game working first with print statements and keyboard input. Once it is working like that, then you could focus on actually drawing the board and registering clicks properly. </li>
+        <li>For drawing the board, you can make things a bit easier on yourself by carefully choosing the scales for your drawing area. Since the board is 6 rows and 7 columns, you could set your drawing area accordingly as follows:
+            <pre>StdDraw.setXscale(-0.0, +7);</pre>
+            <pre>StdDraw.setYscale(-0.0, +6);</pre>
+        </li>
+        <li>This will be the most complex project you have worked on thus far. Be especially careful that you always have your code indented correctly. Test your code frequently or it will become nearly impossible to debug your code.</li>
+        <li>Use methods as needed. They can often be a useful tool for eliminating unnecessary repetition in your code. They can also be helpful in making your code more organized and easier to read.</li>
+    </ul>
+
+    <h2>Grading:</h2>
+    <ul>
+        <li>It must be possible to play your game in order to earn any credit for this assignment.</li>
+        <li>2 points: Meet everything listed for requirements 2 and 3. If you do not meet one or more of the items listed under requirements 2 and 3, then your score on the assignment will be a 0/4. (Yes, of course you will be able to submit corrections.)</li>
+        <li>1 point - Display - Meet all the below requirements:
+        <ul>
+            <li>Accurately draw the board and the pieces on the board using the <code>StdDraw</code> library.</li>
+            <li>You may choose whatever color scheme (and other styling) you like as long as the board, player 1's pieces, and player 2's pieces are all clearly different colors.</li>
+            <li>Show a game over message on top of the board that states which player won.</li>
+        </ul>
+        <li>1 point - User Input - Meet all the below requirements:</li>
+        <ul>
+            <li>When a player clicks anywhere on a column, the player's piece should be dropped in that column if possible.</li>
+            <li>When a player clicks on a column that is already filled with pieces, nothing should happen; the same player should be able to continue clicking on columns until they choose a column where they can actually play a piece.</li>
+        </ul>
+        <li>0 points - If you wish, you may "draw" the board just using only print statements. You may also have the user use keyboard input to play the game instead of clicking. If you chose both of these options, then you would not earn any credit for the Display or User Input sections. This would mean that at most you could earn a 2/4.</li>
+    </ul>
+</body>
+</html>
