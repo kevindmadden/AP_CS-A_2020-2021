@@ -1,12 +1,11 @@
 package Period1.u07_2dArrays;
 
-public class s02_TicTacToev2 {
+public class s03_TicTacToev3 {
 
     public static void main(String args[]){
 
-        StdDraw.setScale(-0.0, +100.0);
-
-
+        StdDraw.setXscale(-0.0, +3);
+        StdDraw.setYscale(-0.0, +3);
         StdDraw.enableDoubleBuffering();
 
         /* Initial Values */
@@ -35,20 +34,20 @@ public class s02_TicTacToev2 {
              * * * * * * * * * * * */
 
             //Draw Board Grid
-            for(int x = 1; x<=5; x+=2){
-                for(int y = 1; y<=5; y+=2){
-                    StdDraw.square(100*(x/6.0), 100*(y/6.0), 100*(1/6.0) );
+            for(int x = 0; x < 3; x++){
+                for(int y = 0; y < 3; y++){
+                    StdDraw.square(x+0.5,y+0.5, .5);
                 }
             }
 
             //Draw Board x's and o's
-            for(int x = 0; x <= 2; x++){
-                for(int y = 0; y <= 2; y++){
+            for(int x = 0; x < 3; x++){
+                for(int y = 0; y < 3; y++){
                     if(board[x][y].equals("o")){
-                        StdDraw.circle(x*33.333333+33.333333*0.5, y*33.333333+33.333333*0.5, 10);
+                        StdDraw.circle(x+0.5,y+0.5, .4);
                     }else if(board[x][y].equals("x")){
-                        StdDraw.line(x*33.333333+5, y*33.333333+5, x*33.333333+28,y*33.333333+28);
-                        StdDraw.line(x*33.333333+5, y*33.333333+28, x*33.333333+28,y*33.333333+5);
+                        StdDraw.line(x+0.1, y+0.1, x+0.9, y+0.9);
+                        StdDraw.line(x+0.1, y+0.9, x+0.9, y+0.1);
                     }
                 }
             }
@@ -126,16 +125,18 @@ public class s02_TicTacToev2 {
 
             if(didClickOccur){
                 didClickOccur = false;
-                //System.out.println("x:"+ StdDraw.mouseX()+" y:"+ StdDraw.mouseY()); //log
-                int xClicked = (int)(StdDraw.mouseX()/33.333333);
-                int yClicked = (int)(StdDraw.mouseY()/33.333333);
-                //System.out.println("board["+xClicked+"]["+yClicked+"]"); //log
+                System.out.println("x:"+ StdDraw.mouseX()+" y:"+ StdDraw.mouseY()); //log
+                int xClicked = (int)(StdDraw.mouseX());
+                int yClicked = (int)(StdDraw.mouseY());
+                System.out.println("board["+xClicked+"]["+yClicked+"]"); //log
                 if(board[xClicked][yClicked].equals("")){
                     board[xClicked][yClicked] = pieceToPlaceNext;
                     mostRecentlyPlaced = pieceToPlaceNext;
                 }
 
             }
+
+
 
             // 1. Track when click occurs: StdDraw.isMousePressed() - either true or false
             //      -When you click down initially, changes from false => true

@@ -32,7 +32,7 @@ public class s02_TicTacToev2 {
                 Drawing (View)
              * * * * * * * * * * * */
 
-            //Draw Board Grid
+            //Draw Board Grid: 1,3,5
             for(int x = 1; x<=5; x+=2){
                 for(int y = 1; y<=5; y+=2){
                     StdDraw.square(100*(x/6.0), 100*(y/6.0), 100*(1/6.0) );
