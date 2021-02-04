@@ -1,0 +1,12 @@
+Complete the last two exercises in this file (we already did the first one in class):
+
+Intro Exercises to Writing Classes.pdf  
+
+Additionally, complete exercise #1 in this file (I already covered how to do #2 in the later part of the lesson on 2020-02-02 and in the lesson on 2020-02-03):
+
+TwoComplexClassExercises.pdf  
+
+
+It is required to complete the three problems above. If you feel you need some additional practice, there are additional practice exercises you may complete in this file:
+
+Additional Writing Classes Exercises.pdf  

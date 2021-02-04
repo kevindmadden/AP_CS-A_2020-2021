@@ -4,6 +4,17 @@ public class s03_TicTacToev3 {
 
     public static void main(String args[]){
 
+
+        boolean leaveForLoopEarly = false;
+        for(int i=0; i<10; i++){
+            System.out.println(i);
+            if(leaveForLoopEarly && i==5){
+                break;
+            }
+        }
+
+
+
         StdDraw.setXscale(-0.0, +3);
         StdDraw.setYscale(-0.0, +3);
         StdDraw.enableDoubleBuffering();

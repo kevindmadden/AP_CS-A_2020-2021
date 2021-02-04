@@ -41,7 +41,7 @@ public class Duck {
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // - Start of constructor  - - - - - - - - - - - - - - - - - - - - - -
 
-    public Duck(){
+    public Duck(){ //for constructors, first letter should be upper case; the name of the constructor should be the same as the name of the class
         numOfTimesHonked=0;
         speechContent="honk!";
         isSwimming=true;

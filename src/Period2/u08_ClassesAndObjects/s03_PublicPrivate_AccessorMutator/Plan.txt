@@ -1,0 +1,5 @@
+Do simple Accumulator class example
+Have class write Counter class
+Do #2 of long practice problems
+
+HW: GasTank and #1 of long practice problems.
