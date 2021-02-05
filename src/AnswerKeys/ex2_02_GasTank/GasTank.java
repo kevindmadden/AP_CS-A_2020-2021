@@ -1,4 +1,4 @@
-package Period1.u08_ClassesAndObjects.s04_Counter_GasTankAnswer;
+package AnswerKeys.ex2_02_GasTank;
 
 public class GasTank {
     private double amount = 0;

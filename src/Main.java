@@ -1,230 +1,160 @@
-import java.awt.*;
+import java.util.Random;
+import java.util.Scanner;
 
-public class Main{
-    public static void main(String args[]){
+public class Main {
 
-        StdDraw.setXscale(-0.0, +7);
-        StdDraw.setYscale(-0.0 ,+6 );
-        StdDraw.enableDoubleBuffering();
+    static int lastRow, lastCol;
+    static final int ROWS = 6, COLUMNS = 7;
 
-        /* Initial Values */
-        int [][] board = new int[7][6];
+    public static void main(String[] args) {
 
+        int[][] board = new int[ROWS][COLUMNS];
+        Scanner scanner = new Scanner(System.in);
 
-        for(int row = 0; row < 6; row++){
-            for(int col = 0; col < 7; col++){
-                board[col][row] = 0;
+        // randomly select the player to start the game
+        int [] players = new int[]{1, 2};
+        int playerIndex = new Random().nextInt(2);
+        int columnSelected, currentPlayer, winner;
+        currentPlayer = players[playerIndex];
+        System.out.println("\nPlayer " + currentPlayer + " will start the game. ");
+        printBoard(board);
+
+        do {	// This will loop until we have a winner or a tie in the end.
+            System.out.println("\nPlayer " + currentPlayer + " select a column between 1-7: ");
+            columnSelected = scanner.nextInt();
+            while (!checkIfColumnHasEmptySpot(board, columnSelected)) {
+                System.out.println("\nSelected column " + columnSelected + " is not emptly. Please select another column: ");
+                printBoard(board);
+                columnSelected = scanner.nextInt();
             }
-        }
-        int mostRecentlyPlaced = 1;
-        if (Math.random()*100>50){
-            mostRecentlyPlaced = 2;
-        }
-        int pieceToPlaceNext = 2;
-
-        boolean isMousePressedTracker = false;
-        boolean didClickOccur = false;
-
-        double timeElapsed = 0.017; //formerly called "dt". This is number of seconds between each frame of the animation -  0.017 milliseconds is the same as 60fps
-        while(true) {
-            StdDraw.clear();
-
-  /*      int [][] board = {
-                {1,0,0,0,0,0},
-                {0,1,0,0,0,0},
-                {0,0,1,0,0,0},
-                {0,0,0,1,0,0},
-                {0,0,0,0,0,0},
-                {0,0,0,0,0,0},
-                {2,0,0,0,0,1},
-         };
-*/
-
-
-
-
-
-            /* Drawing Models
-            for (int x = 0; x < 7; x++) {
-                for (int y = 0; y < 6; y++) {
-                    StdDraw.setPenColor(Color.black);
-                    StdDraw.circle(x + 0.5, y + 0.5, 0.5);
-
+            for (int i = ROWS -1; i >= 0; i--) {
+                if (board[i][columnSelected - 1] != 0)
+                    continue;
+                else {
+                    board[i][columnSelected - 1] = currentPlayer;
+                    lastRow = i;
+                    lastCol = columnSelected - 1;
+                    break;
                 }
             }
 
-            for (int x = 0; x < 7; x++) {
-                for (int y = 0; y < 6; y++) {
-                    if (board[x][y] == 1) {
-                        StdDraw.setPenColor(Color.red);
-                        StdDraw.filledCircle(x * 1 + 1 * 0.5, y * 1 + 1 * 0.5, 0.5);
-                    } else if (board[x][y] == 2) {
-                        StdDraw.setPenColor(Color.blue);
-                        StdDraw.filledCircle(x * 1 + 1 * 0.5, y * 1 + 1 * 0.5, 0.5);
-                    }
-                    //else if(board[y][x]==0){
-                    //    StdDraw.circle(x+0.5,y+0.5,0.5);
-                    //}
+            // switch current player
+            currentPlayer = currentPlayer == 1 ? 2 : 1;
+            printBoard(board);
+            winner = checkForWinner(board);
+        } while (winner == 0);
 
-                }
-            }
-*/
+        System.out.print("Game over. ");
+        if (winner == 1)
+            System.out.println("Player 1 won the game.");
+        else if (winner == 2)
+            System.out.println("Player 2 won the game.");
+        else
+            System.out.println("Its a tie.");
 
-            /*Game Logic*/
-            if (mostRecentlyPlaced == 1) {
-                pieceToPlaceNext = 2;
-            } else if (mostRecentlyPlaced == 2) {
-                pieceToPlaceNext = 1;
-            }
-
-
-            /*Controller Input*/
-
-            if (StdDraw.isMousePressed()) {
-                isMousePressedTracker = true;
-            }
-            if (!StdDraw.isMousePressed()) {
-                if (isMousePressedTracker) {
-                    System.out.println("Click occurred!");
-                    didClickOccur = true;
-                    isMousePressedTracker = false;
-                }
-            }
-
-            if (didClickOccur) {
-                didClickOccur = false;
-                //System.out.println("x:"+ StdDraw.mouseX()+" y:"+ StdDraw.mouseY()); //log
-                int xClicked = (int) (StdDraw.mouseX());
-
-                boolean Click = true;
-                int dropSlot = dropSlot(board,xClicked);
-                if (dropSlot==40){
-                    Click = false;
-                }
-                //System.out.println("board["+xClicked+"]["+yClicked+"]"); //log
-                if (Click) {
-                    board[xClicked][dropSlot] = pieceToPlaceNext;
-                    mostRecentlyPlaced = pieceToPlaceNext;
-                }
-
-            }
-
-            draw(board);
-
-            System.out.println(checkForWinner(board));
-            int winner = checkForWinner(board);
-            if ((winner ==1) || (winner == 2) || (winner ==3) ){
-                break;
-            }
-
-
-
-            StdDraw.pause((int)(timeElapsed*1000));
-
-        }
-
+        scanner.close();
     }
 
-
-
-    public static void draw (int [][]board) {
-        for (int x = 0; x < 7; x++) {
-            for (int y = 0; y < 6; y++) {
-                StdDraw.setPenColor(Color.black);
-                StdDraw.circle(x + 0.5, y + 0.5, 0.5);
-
-            }
-        }
-
-        for (int x = 0; x < 7; x++) {
-            for (int y = 0; y < 6; y++) {
-                if (board[x][y] == 1) {
-                    StdDraw.setPenColor(Color.red);
-                    StdDraw.filledCircle(x * 1 + 1 * 0.5, y * 1 + 1 * 0.5, 0.5);
-                } else if (board[x][y] == 2) {
-                    StdDraw.setPenColor(Color.blue);
-                    StdDraw.filledCircle(x * 1 + 1 * 0.5, y * 1 + 1 * 0.5, 0.5);
-                }
-                //else if(board[y][x]==0){
-                //    StdDraw.circle(x+0.5,y+0.5,0.5);
-                //}
-
-            }
-        }
-
-        StdDraw.show();
-    }
-
-    public static int checkForWinner (int [][]board) {
-
-        boolean isTie = true;
-
-        for(int col = 0; col< 7; col++){
-            for (int row =0; row< 6; row++){
-
-                if (board[col][row]==0){
-                    isTie = false;
-                }
-                //vertical
-                if ((row+3<6 &&(board[col][row] != 0) && (board[col][row]== board[col][row+1])&& (board[col][row] == board[col][row+2]) && (board[col][row] == board[col][row+3]))){
-                    return board[col][row];
-                }
-                //horizontal
-                if ((col+3<7 &&(board[col][row] != 0) && (board[col][row]== board[col+1][row])&& (board[col][row] == board[col+2][row]) && (board[col][row] == board[col+3][row]))){
-                    return board[col][row];
-                }
-                //bottom left to top right
-                if ((col+3<7 && row+3<6 && (board[col][row] != 0) && (board[col][row]== board[col+1][row+1])&& (board[col][row] == board[col+2][row+2]) && (board[col][row] == board[col+3][row+3]))){
-                    return board[col][row];
-                }
-                //top left to bottom right
-                if ((col+3<7 && row-3>-1 && (board[col][row] != 0) && (board[col][row]== board[col+1][row-1])&& (board[col][row] == board[col+2][row-2]) && (board[col][row] == board[col+3][row-3]))){
-                    return board[col][row];
-                }
-
-            }
-
-        }
-        if (isTie){
-            return 3;
-        }
-
-       /*
-        for (int col = 0; col<7; col++){
-            for (int row = 0; row<6; row++){
-                if ((col+3<7 &&(board[col][row] != 0) && (board[col][row]== board[col+1][row])&& (board[col][row] == board[col+2][row]) && (board[col][row] == board[col+3][row]))){
-                    return board[col][row];
-                }
-            }
-        }
-
-
-        for (int col = 0; col<7; col++){
-            for (int row = 0; row<6; row++){
-                if ((col+3<7 && row+3<6 && (board[col][row] != 0) && (board[col][row]== board[col+1][row+1])&& (board[col][row] == board[col+2][row+2]) && (board[col][row] == board[col+3][row+3]))){
-                    return board[col][row];
-                }
-            }
-        }
-
-        */
-
-
-        return 0;
-    }
-
-
-    public static int dropSlot (int[][]board, int x){
-        int dropSlot = 0;
-        for(int y =0; y<6;y++){
-            if (board[x][y] == 0)
-                return dropSlot;
+    public static boolean checkIfColumnHasEmptySpot(int[][] board, int column) {
+        boolean isEmpty = false;
+        for(int i = 0; i < ROWS; i++) {
+            if (board[i][column-1] != 0)
+                continue;
             else
-                dropSlot++;
+                isEmpty = true;
         }
-        return 40;
+        return isEmpty;
     }
+
+    public static void printBoard(int[][] board) {
+        for (int row = 0; row < ROWS; row++) {
+            for (int col = 0; col < COLUMNS; col++)
+                System.out.print(board[row][col] + "\t");
+            System.out.println();
+        }
+    }
+
+    public static int checkForWinner(int[][] board) {
+        int winner = 0;
+        String winningStreak;
+        StringBuilder sb = new StringBuilder(COLUMNS);
+        boolean horizontal = false, vertical = false, leftDiagonal = false, rightDiagonal = false;
+
+        int lastPlayedVal = board[lastRow][lastCol];
+
+        winningStreak = String.format("%d%d%d%d", lastPlayedVal, lastPlayedVal, lastPlayedVal, lastPlayedVal);
+
+        // Check horizontallyy
+        for (int i = 0; i < COLUMNS; i++)
+            sb.append(board[lastRow][i]);
+
+        if (sb.toString().indexOf(winningStreak) >= 0) {
+            horizontal = true;
+        }
+
+        // Check vertically
+        if (!horizontal) {
+            sb = new StringBuilder(COLUMNS);
+            for (int i = lastRow; i < ROWS; i++) {
+                sb.append(board[i][lastCol]);
+            }
+
+            if (sb.toString().indexOf(winningStreak) >= 0) {
+                vertical = true;
+            }
+        }
+
+        // check "/" diagonal
+        if (!horizontal && !vertical) {
+            sb = new StringBuilder(COLUMNS);
+
+            int i = lastRow, j = lastCol;
+            while (i < ROWS && j >= 0) {
+                sb.append(board[i][j]);
+                i++;
+                j--;
+            }
+
+            if (sb.toString().indexOf(winningStreak) >= 0) {
+                leftDiagonal = true;
+            }
+        }
+
+        if (!horizontal && !vertical && !leftDiagonal) {
+            sb = new StringBuilder(COLUMNS);
+            int i = lastRow, j = lastCol;
+            while (i < ROWS && j < COLUMNS) {
+                sb.append(board[i][j]);
+                i++;
+                j++;
+            }
+
+            if (sb.toString().indexOf(winningStreak) >= 0) {
+                rightDiagonal = true;
+            }
+
+        }
+
+        if (horizontal || vertical || leftDiagonal || rightDiagonal)
+            winner = lastPlayedVal;
+
+
+        // check if it is a tie; if not declare the winner.
+        boolean boardFull = true;
+        for (int row = 0; row < ROWS; row++) {
+            for (int col = 0; col < COLUMNS; col++) {
+                if (board[row][col] == 0) {
+                    boardFull = false;
+                    break;
+                }
+            }
+            if (!boardFull)
+                break;
+        }
+        if (boardFull && winner == 0)
+            winner = 3;
+
+        return winner;
+    }
+
 }
-
-
-
