@@ -10,5 +10,6 @@ public class HolidayTest {
         System.out.println(h1.inSameMonth(h1,h2)); //expected: false
         System.out.println(h2.inSameMonth(h2,h4)); //expected: true
         System.out.println(h1.avgDate(holidays)); //expected: 10.3333...
+
     }
 }

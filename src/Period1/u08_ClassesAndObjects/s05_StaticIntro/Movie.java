@@ -1,4 +1,4 @@
-package Period1.u08_ClassesAndObjects.s03_ComplexClassNum2;
+package Period1.u08_ClassesAndObjects.s05_StaticIntro;
 
 public class Movie {
 
@@ -41,7 +41,7 @@ public class Movie {
         (1) Primitives: int, double, boolean, char
         (2) Objects: String, (and also any class you write yourself will be an Object data type)
      */
-    public Movie[] getPG(Movie[] movies){
+    public static Movie[] getPG(Movie[] movies){
         for(int i=0; i<movies.length; i++){
             if(!movies[i].rating.equals("PG")){
                 movies[i] = null;
