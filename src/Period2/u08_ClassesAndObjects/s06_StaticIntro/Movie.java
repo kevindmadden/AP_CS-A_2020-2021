@@ -1,4 +1,4 @@
-package Period1.u08_ClassesAndObjects.s05_StaticIntro;
+package Period2.u08_ClassesAndObjects.s06_StaticIntro;
 
 public class Movie {
 
@@ -14,18 +14,22 @@ public class Movie {
 
     public Movie(String title, String studio){
 
-
-        /*this.title = title;
+        /*
+        this.title = title;
         this.studio = studio;
-        this.rating = "PG";*/
-
-        //The above is equivalent to below (so both pieces of code do the exact same thing)
-
+        this.rating = "PG";
+        */
+        //The above block of code does the same exact thing as the below line of code
         this(title, studio, "PG");
+
     }
 
     public String getRating(){
         return this.rating;
+    }
+
+    public void setRating(String rating){
+        this.rating = rating;
     }
 
     /*
@@ -55,5 +59,6 @@ public class Movie {
         }
         return movies;
     }
+
 
 }

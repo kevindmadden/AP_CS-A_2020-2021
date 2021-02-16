@@ -1,4 +1,4 @@
-package Period1.u08_ClassesAndObjects.s05_StaticIntro;
+package Period2.u08_ClassesAndObjects.s06_StaticIntro;
 
 public class Main {
     public static void main(String args[]) {
@@ -43,6 +43,9 @@ public class Main {
 
         //part d
         Movie movie6 = new Movie("Casino Royale", "Eon Productions", "PG-13");
+
+        System.out.println(movie6);
+
 
     }
 
