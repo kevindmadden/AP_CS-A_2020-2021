@@ -1,7 +1,12 @@
 package Period2.u07_2dArrays;
 
 public class s04_Connect4Model {
+
+
     public static void main(String args[]){
+
+
+
 
         /*
         This is an example of how you might go about setting things up in order to check all possible
