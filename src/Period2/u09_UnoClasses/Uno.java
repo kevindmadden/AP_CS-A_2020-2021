@@ -1,5 +1,18 @@
 package Period2.u09_UnoClasses;
 
+/*
+*******************************************
+*******************************************
+*******************************************
+* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* Reminder! AP CS-P focuses on animation significantly more than this class. If you're interested, send an email to your counselor
+* NOW saying that you want to sign up (schedules for next year will be finalized very soon).
+* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ */
+
+
+
 public class Uno {
     /*
 
@@ -8,22 +21,6 @@ public class Uno {
     -Rules of the game
     -Saying uno (maybe we include this...?)
     -Multiplayer/Computer Players
-
-    Color category (Red, Green Blue Yellow, Non-color)
-
-    Different Card Types
-    -Wild Draw 4 Cards
-    --Non-colored
-    -Wild Cards
-    --Non-Colored
-    -Reverse Card
-    --Colored
-    -Skip Card
-    --Colored
-    -Draw 2 Card
-    --Colored
-    -Numbered Cards
-    --Colored
 
     Where Can the Cards Be Located?
     =Deck pile

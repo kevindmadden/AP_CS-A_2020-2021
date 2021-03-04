@@ -4,6 +4,9 @@ public class Connect4Testing {
 
     //IMPORTANT: IF POSTING ON CODEPOST, PUT TWO SPACES AT THE END OF EVERY LINE IN ORDER TO PRESERVE LINE BREAKS
 
+
+
+
     /*
     Try changing boolean below to true if initial testing isn't working.
      */
@@ -187,20 +190,25 @@ public class Connect4Testing {
         for(int[] row : test[0]){
             System.out.println("`"+Arrays.toString(row)+"`  ");
         }
-        int result;
+        int result = 0;
         String errorMessage = "";
         try{
-            result = Main.checkForWinner(test[0]);
+            //result = Main.checkForWinner(test[0]);
         }catch(Exception e){
             result= -1;
             errorMessage= e.toString()+ " " + (e.getStackTrace())[0].toString() + "  ";
         }
         if(result == -1){
             try {
-                result = Main.checkForWinner(transposeMatrix(test[0]));
-                errorMessage="Test worked with transposed matrix.";
+                //result = Main.checkForWinner(transposeMatrix(test[0]));
+                if(result==test[1][0][0]){
+                    System.out.println("Test worked with transposed matrix.  ");
+                    errorMessage="";
+                }
+                //errorMessage="Test worked with transposed matrix.";
             }catch(Exception e){
-                result = -1;
+                //result = -1;
+                //errorMessage= e.toString()+ " " + (e.getStackTrace())[0].toString() + "  ";
 
             }
         }
@@ -222,6 +230,5 @@ public class Connect4Testing {
         }
 
     }
-
 
 }

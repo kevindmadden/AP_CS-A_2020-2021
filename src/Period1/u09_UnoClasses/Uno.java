@@ -1,7 +1,9 @@
 package Period1.u09_UnoClasses;
 
+
 public class Uno {
     public static void main(String args[]){
+
 
 
         //Overall Game
@@ -20,19 +22,7 @@ public class Uno {
         //-Discard Card
         //-Cards in Player's Hand
 
-        //Numbered Cards
-        //-Color
-        //-Number
-        //Reverse Card
-        //-Color
-        //Skip Card Number Cards
-        //-Color
-        //Wild Card
-        //-(Every Color)
-        //Draw 4 Wild Card
-        //-(Every Color)
 
-        //Different Colors (Green, Red, Blue, Yellow)
 
         //Saying uno!!
 

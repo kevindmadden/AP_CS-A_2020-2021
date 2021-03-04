@@ -73,5 +73,28 @@
         </ul>
         <li>0 points - If you wish, you may "draw" the board just using only print statements. You may also have the user use keyboard input to play the game instead of clicking. If you chose both of these options, then you would not earn any credit for the Display or User Input sections. This would mean that at most you could earn a 2/4.</li>
     </ul>
+
+
+
+
+
+
+
+
+
+
+    // One Possible Way to Check for Ties
+    // (a) Scanning in all 4 possible directions (vert, horiz, up_left-to-down_right, up_right-to-down_left)
+    //          If a player got 4 in a row in any of the above 4 possible directions, then return that player's number who won.
+    // (b) Count up the total number of tokens on the board. If the number of tokens is 42, then that means the whole board is filled up
+    //      and there is a tie.
+    // (c) If it is NOT the case that the number of tokens is 42, then you can assume that the game needs to keep running.
+
+    // Other way to Check for Ties if this makes more sense...
+    // // (a) Scanning in all 4 possible directions (vert, horiz, up_left-to-down_right, up_right-to-down_left)
+    //          If a player got 4 in a row in any of the above 4 possible directions, then return that player's number who won.
+    //    (b) Scan through the board, and if you find a space somewhere on the board that is 0 (so an open space),
+    //          then you can conclude that the game must go on.
+    //    (c) If condition (b) isn't met, then you know that there has to be a tie.
 </body>
 </html>
