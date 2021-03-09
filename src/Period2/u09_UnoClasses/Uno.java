@@ -1,19 +1,11 @@
 package Period2.u09_UnoClasses;
 
-/*
-*******************************************
-*******************************************
-*******************************************
-* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-* Reminder! AP CS-P focuses on animation significantly more than this class. If you're interested, send an email to your counselor
-* NOW saying that you want to sign up (schedules for next year will be finalized very soon).
-* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- */
-
-
-
 public class Uno {
+    public static void main(String args[]){
+        Deck deck = new Deck();
+    }
+
+
     /*
 
     Overall Game
@@ -34,24 +26,6 @@ public class Uno {
      -Places drawn cards in hand
      -Plays cards by placing them on top of the discard pile
 
-
-
-
-
      */
-
-
-
-
-
-
-    public static void main(String args[]){
-
-    }
-
-
-
-
-
 
 }

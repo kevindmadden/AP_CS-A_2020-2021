@@ -39,6 +39,10 @@ public class Card {
         this.number = -1;
     }
 
+    public String toString(){
+        String s = color+ " " + type + " " + number;
+        return s;
+    }
 
 
 

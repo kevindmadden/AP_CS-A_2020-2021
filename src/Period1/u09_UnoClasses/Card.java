@@ -32,4 +32,23 @@ public class Card {
         this.number = -1;
     }
 
+    public String toString(){
+        String s = color+ " "+type+" "+number;
+        return s;
+    }
+
+    public String getColor(){
+        return color;
+    }
+
+    public String getType(){
+        return type;
+    }
+
+    public int getNumber(){
+        return number;
+    }
+
+
+
 }
