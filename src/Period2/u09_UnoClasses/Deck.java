@@ -14,7 +14,14 @@ public class Deck {
                 Card card = new Card(color, "numbered", number);
                 deck.add(card);
             }
+            Card reverse = new Card(color, "reverse");
+            deck.add(reverse);
+            Card skip = new Card(color, "skip");
+            deck.add(skip);
         }
+
+        //Add four cards with the color "all" and the type "wild".
+        //Add four cards with the color "all" and the type "wildDraw4".
 
         for(Card card : deck){
             System.out.println(card);

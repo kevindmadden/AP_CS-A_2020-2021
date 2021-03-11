@@ -5,23 +5,25 @@ package Period2.u09_UnoClasses;
     Color category (Red, Green Blue Yellow, Non-color)
 
     Different Card Types
-    -Wild Draw 4 Cards
+    -Wild Draw 4 Cards (4x)
     --Non-colored
-    -Wild Cards
+    -Wild Cards (4x)
     --Non-Colored
+
     -Reverse Card
     --Colored
     -Skip Card
     --Colored
-    -Draw 2 Card
-    --Colored
     -Numbered Cards
+    --Colored
+
+    -Draw 2 Card
     --Colored
 
  */
 
 public class Card {
-    private String color; //red, blue, green, yellow, mix
+    private String color; //red, blue, green, yellow, all
     private String type; //wild, wild draw 4, reverse, skip, draw 2, numbered
     private int number; //0, 1, 2, 3, 4, 5, 6, 7, 8, 9, [-1 when the card isn't a numbered card]
 

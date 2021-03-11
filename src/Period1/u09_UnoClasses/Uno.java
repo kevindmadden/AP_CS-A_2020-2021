@@ -1,34 +1,33 @@
 package Period1.u09_UnoClasses;
 
-
 public class Uno {
     public static void main(String args[]){
         Deck deck = new Deck();
-
-
-
-        //Overall Game
-        //-Checking for a win
-
-        //Deck
-        //-Draw Card
-        //-Shuffle
-        //-Checking if the Deck is Empty
-        //Discard
-        //-Discard Card
-        //-Moving the full pile of discarded cards to empty deck
-        //-What card is on top?
-        //Player's Hand (multiple player hands)
-        //-Draw Card
-        //-Discard Card
-        //-Cards in Player's Hand
-
-
-
-        //Saying uno!!
-
-
-
+        deck.shuffle();
 
     }
+
+
+    /*
+
+    Overall Game
+    -Checking to see if someone won the game
+    -Rules of the game
+    -Saying uno (maybe we include this...?)
+    -Multiplayer/Computer Players
+
+    Where Can the Cards Be Located?
+    =Deck pile
+     -Shuffle
+     -Draw Cards
+    =Discard Pile
+     -Remove cards when time to reshuffle
+     -Card at the very top
+     -Cards placed by player on top
+    =Hand
+     -Places drawn cards in hand
+     -Plays cards by placing them on top of the discard pile
+
+     */
+
 }
