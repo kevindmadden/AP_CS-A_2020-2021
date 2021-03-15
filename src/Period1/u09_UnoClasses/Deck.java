@@ -40,6 +40,7 @@ public class Deck {
 
     public void shuffle(){
 
+
         //normal array way to swap two elements
         int[] a = {5,6,7,8,9};
         int temp = a[0];
@@ -51,20 +52,21 @@ public class Deck {
         deck.set(0, deck.get(1));
         deck.set(1, temp2);
 
+
         //"Finish" writing this method to shuffle the deck
-            //Use Math.random()
+            //Use Math.random() => [0,1) * deck.size() => [0,100)
             //General Strategy:
-                // Randomly choose two index locations in the deck, and swap the cards at those two locations. Repeat this process
+                // Randomly choose two **index** locations in the deck, and swap the cards at those two locations. Repeat this process
                 //    1000 times.
                 // Use size() on an arrayList to find how many elements are in the array. For example, the below would print out how many elments are in the deck:
                     // System.out.println(deck.size());
-
-
-
-
-
-
-
+        for(int i=0; i<10000; i++){
+            int randomIndexNum1 = (int)(Math.random()*deck.size());
+            int randomIndexNum2 = (int)(Math.random()*deck.size());
+            Card tempCard = deck.get(randomIndexNum1);
+            deck.set(randomIndexNum1,deck.get(randomIndexNum2));
+            deck.set(randomIndexNum2,tempCard);
+        }
     }
 
 }
