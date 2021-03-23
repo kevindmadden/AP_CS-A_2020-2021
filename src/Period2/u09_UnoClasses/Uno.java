@@ -3,6 +3,13 @@ package Period2.u09_UnoClasses;
 public class Uno {
     public static void main(String args[]){
         Deck deck = new Deck();
+        deck.shuffle();
+
+        Hand hand1 = new Hand(deck.drawStartingHand());
+        System.out.println(hand1);
+
+        //Hand hand2 = new Hand();
+
 
 
     }

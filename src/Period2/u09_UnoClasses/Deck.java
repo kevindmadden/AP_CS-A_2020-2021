@@ -1,7 +1,5 @@
 package Period2.u09_UnoClasses;
 
-import Period1.u09_UnoClasses.Card;
-
 import java.util.ArrayList;
 
 public class Deck {
@@ -34,15 +32,12 @@ public class Deck {
 
         //Add four cards with the color "all" and the type "wild".
         //Add four cards with the color "all" and the type "wildDraw4".
-
-        for(Card card : deck){
-            System.out.println(card);
-        }
     }
 
     public void shuffle(){
 
-
+        /*
+            -- Comparison of swapping two array items in normal arrays vs arraylist --
         //normal array way to swap two elements
         int[] a = {5,6,7,8,9};
         int temp = a[0];
@@ -53,15 +48,8 @@ public class Deck {
         Card temp2 = deck.get(0);
         deck.set(0, deck.get(1));
         deck.set(1, temp2);
+         */
 
-
-        //"Finish" writing this method to shuffle the deck
-            //Use Math.random() => [0,1) * deck.size() => [0,100)
-            //General Strategy:
-                // Randomly choose two **index** locations in the deck, and swap the cards at those two locations. Repeat this process
-                //    1000 times.
-                // Use size() on an arrayList to find how many elements are in the array. For example, the below would print out how many elments are in the deck:
-                    // System.out.println(deck.size());
         for(int i=0; i<10000; i++){
             int randomIndexNum1 = (int)(Math.random()*deck.size());
             int randomIndexNum2 = (int)(Math.random()*deck.size());
@@ -69,6 +57,33 @@ public class Deck {
             deck.set(randomIndexNum1,deck.get(randomIndexNum2));
             deck.set(randomIndexNum2,tempCard);
         }
+    }
+
+    public Card drawTopCard(){
+        Card removedCard;
+        if(deck.size()==0){
+            removedCard = null;
+        }else{
+            removedCard = deck.remove(0);
+        }
+        return removedCard;
+
+    }
+
+    public ArrayList<Card> drawStartingHand(){
+        ArrayList<Card> startingHand = new ArrayList<Card>();
+        for(int i=0; i < 7; i++){
+            startingHand.add(drawTopCard());
+        }
+        return startingHand;
+    }
+
+    public String toString(){
+        String s = "";
+        for(Card card : deck){
+            s += card.toString() + "\n";
+        }
+        return s;
     }
 
 }
