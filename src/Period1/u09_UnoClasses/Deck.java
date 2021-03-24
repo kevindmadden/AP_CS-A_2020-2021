@@ -62,23 +62,21 @@ public class Deck {
     public Card drawTopCard(){
         Card removedCard;
         if(deck.size()==0){
-            System.out.println("The deck no longer has cards. Implement something that lets you put the discarded cards back into the deck dummy");
-            return null;
+            removedCard = null;
         }else{
             removedCard = deck.remove(0);
         }
         return removedCard;
+
     }
 
     public ArrayList<Card> drawStartingHand(){
-        ArrayList<Card> tempCards = new ArrayList<Card>();
-        for(int i = 0; i<7; i++){
-            tempCards.add(drawTopCard());
+        ArrayList<Card> startingHand = new ArrayList<Card>();
+        for(int i=0; i < 7; i++){
+            startingHand.add(drawTopCard());
         }
-        return tempCards;
+        return startingHand;
     }
-
-
 
     public String toString(){
         String s = "";
