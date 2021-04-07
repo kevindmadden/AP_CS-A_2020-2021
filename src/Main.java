@@ -2,22 +2,84 @@ import java.awt.*;
 
 public class Main {
 
-    public static void main(String[] args) {
-
-        StdDraw.setCanvasSize(700, 600);
-
-        StdDraw.setXscale(-0.0, +7); //7 columns
-        StdDraw.setYscale(-0.0, +6); //6 rows
-        StdDraw.enableDoubleBuffering();
+    public static int checkForWinner (int[][] board) {
 
 
-        int[][] board = new int[6][7]; //[y][x]
-
-        for (int row = 0; row < 6; row++) {
+        for (int i = 0; i < 2; i++) {
+            int player = 1;
+            if (i == 1) {
+                player = 2;
+            }
+            //Check vertical win possibilities
             for (int col = 0; col < 7; col++) {
-                board[row][col] = 0;
+                for (int z = 0; z < 3; z++) {
+                    if (board[col][z] == player && board[col][z + 1] == player && board[col][z + 2] == player && board[col][z + 3] == player) {
+                        System.out.println("Player " + player + " wins!");
+                        return player;
+
+
+                    }
+                }
+
+            }
+            //Check horizontal win possibilities
+            for (int row = 0; row < 6; row++) {
+                for (int x = 0; x < 4; x++) {
+                    if (board[x][row] == player && board[x + 1][row] == player && board[x + 2][row] == player && board[x + 3][row] == player) {
+                        System.out.println("Player " + player + " wins!");
+                        return player;
+
+                    }
+                }
+
+            }
+            //Check diagonal possibilities
+            for (int diag1 = 0; diag1 < 3; diag1++) {
+                for (int diag2 = 0; diag2 < 4; diag2++) {
+                    if (board[diag2][diag1] == player && board[diag2 + 1][diag1 + 1] == player && board[diag2 + 2][diag1 + 2] == player && board[diag2 + 3][diag1 + 3] == player) {
+                        System.out.println("Player " + player + " wins!");
+                        return player;
+
+                    }
+                }
+            }
+            for (int diag3 = 0; diag3 < 3; diag3++) {
+                for (int diag4 = 4; diag4 > 0; diag4--) {
+                    if (board[diag4][diag3] == player && board[diag4 - 1][diag3 + 1] == player && board[diag4 - 2][diag3 + 2] == player && board[diag4 - 3][diag3 + 3] == player) {
+                        System.out.println("Player " + player + " wins!");
+                        return player;
+
+                    }
+                }
+            }
+
+        }
+        return 0;
+    }
+
+
+
+    public static void main(String args[]) {
+
+
+        boolean leaveForLoopEarly = false;
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i);
+            if (leaveForLoopEarly && i == 5) {
+                break;
             }
         }
+
+        StdDraw.setXscale(-0.0, +7);
+        StdDraw.setYscale(-0.0, +6);
+        StdDraw.enableDoubleBuffering();
+
+        /* Initial Values */
+        int[][] board = new int[7][6];
+        //Two ways of dealing with the default null values that are present in String arrays
+        //1. Doing a null check - Check to see if the String is not null before running anything else (short-circuiting)
+        //2. Choose a different defa 6; row++){
+
 
         int mostRecentlyPlaced = 0;
         int pieceToPlaceNext = 1;
@@ -25,64 +87,68 @@ public class Main {
         boolean isMousePressedTracker = false;
         boolean didClickOccur = false;
 
-        double timeElapsed = 0.017;
+        double timeElapsed = 0.017; //formerly called "dt". This is number of seconds between each frame of the animation -  0.017 milliseconds is the same as 60fps
         while (true) {
             StdDraw.clear();
 
-        /* * * * * * * * * * * *
-            Drawing (View)
-         * * * * * * * * * * * */
+            /* * * * * * * * * * * *
+                Drawing (View)
+             * * * * * * * * * * * */
 
             //Draw Board Grid
             for (int x = 0; x < 7; x++) {
                 for (int y = 0; y < 6; y++) {
-                    StdDraw.setPenColor(Color.black);
-                    StdDraw.circle(x + 0.5, y + 0.5, .5);
+                    StdDraw.square(x + 0.5, y + 0.5, 0.5);
                 }
             }
 
-
-            //Draw Board red and yellow pieces
+            //Draw Board x's and o's
             for (int x = 0; x < 7; x++) {
                 for (int y = 0; y < 6; y++) {
-                    if (board[y][x] == 1) {
+                    if (board[x][y] == 1) {
                         StdDraw.setPenColor(Color.red);
-                        StdDraw.filledCircle(x + 0.5, y + 0.5, .5);
-                    } else if (board[y][x] == 2) {
-                        StdDraw.setPenColor(Color.yellow);
-                        StdDraw.filledCircle(x + 0.5, y + 0.5, .5);
+                        StdDraw.filledCircle(x + 0.5, y + 0.5, .4);
+                    } else if (board[x][y] == 2) {
+                        StdDraw.setPenColor(Color.blue);
+                        StdDraw.filledCircle(x + 0.5, y + 0.5, .4);
                     }
                 }
             }
 
-
-        /* * * * * * * * * * * *
-            Game Logic (Model)
-         * * * * * * * * * * * */
+            /* * * * * * * * * * * *
+                Game Logic (Model)
+             * * * * * * * * * * * */
             if (mostRecentlyPlaced == 1) {
                 pieceToPlaceNext = 2;
             } else if (mostRecentlyPlaced == 2) {
                 pieceToPlaceNext = 1;
             }
 
-            int result = checkForWinner(board);
+            //3 horizontal rows, 2 diagonals, 3 vertical columns (8 possibly ways to win tic-tac-toe
+            //3 possibilities for winning tic-tac-toe (horizontal rows)
+            //board[0][0] board[0][1] board[0][2]
+            //board[1][0] board[1][1] board[1][2]
+            //board[2][0] board[2][1] board[2][2]
 
-            if(result==1){
-                System.out.println("Player 1 won!");
+            //3 vertical columns
+            //board[0][0] board[1][0] board[2][0]
+            //board[0][1] board[1][1] board[2][1]
+            //board[0][2] board[1][2] board[2][2]
+
+            //2 diagonal
+            //board[0][0] board[1][1] board[2][2]
+            //board[2][0] board[1][1] board[0][2]
+
+
+
+            int result = checkForWinner(board);
+            if(result == 1){
+                System.out.println("Player 1 wins!");
                 System.exit(0);
-            }if (result==2){
-                System.out.println("Player 2 won!");
-                System.exit(0);
-            }if (result==3){
-                System.out.println("Tie Game!");
+            }else if(result == 2){
+                System.out.println("Player 2 Wins!");
                 System.exit(0);
             }
-            //Add stuff for other winners/tie.
-
-
-
-
-
 
 
 
@@ -95,6 +161,7 @@ public class Main {
             }
             if (!StdDraw.isMousePressed()) {
                 if (isMousePressedTracker) {
+                    //System.out.println("Click occurred!");
                     didClickOccur = true;
                     isMousePressedTracker = false;
                 }
@@ -102,91 +169,42 @@ public class Main {
 
             if (didClickOccur) {
                 didClickOccur = false;
-                //    System.out.println("x:" + StdDraw.mouseX() + " y:" + StdDraw.mouseY()); //log
+                System.out.println("x:" + StdDraw.mouseX() + " y:" + StdDraw.mouseY()); //log
                 int xClicked = (int) (StdDraw.mouseX());
-                int yClicked = (int) (StdDraw.mouseY());
-                //    System.out.println("board[" + xClicked + "][" + yClicked + "]"); //log
-                for (int j = 0; j < 6; j++) { //piece goes in lowest possible row
-                    if (board[j][xClicked] == 0) {
-                        board[j][xClicked] = pieceToPlaceNext;
+                for(int z = 0; z < 6; z++) {
+                    System.out.println("board[" + xClicked + "]"); //log
+                    if (board[xClicked][z] == 0) {
+                        board[xClicked][z] = pieceToPlaceNext;
                         mostRecentlyPlaced = pieceToPlaceNext;
                         break;
                     }
                 }
+
+
+
+
+
+
+
             }
 
+
+
+
+            // 1. Track when click occurs: StdDraw.isMousePressed() - either true or false
+            //      -When you click down initially, changes from false => true
+            //      -When you click "up" initially, changes from true => false
+            //      -You could use these properties to track when a single click has occured
+            // 2. If the space is already filled, "ignore" that click.
 
             StdDraw.show();
             StdDraw.pause((int) (timeElapsed * 1000));
-
         }
 
     }
 
-    public static int checkForWinner (int[][] board){
-        for (int i = 0; i < 2; i++) {
-            int player = 1;
-            if (i == 1) {
-                player = 2;
-            }
 
-
-            //horizontal
-            for (int col = 0; col <= 3; col++) {
-                for (int row = 0; row <= 5; row++) {
-                    if ((board[row][col] == player) && (board[row][col + 1] == player) && (board[row][col + 2] == player) && (board[row][col + 3] == player)) {
-                        return player;
-                    }
-                }
-            }
-
-            //vertical
-            for(int col = 0; col <=6; col++){
-                for(int row = 0; row <=5; row++){
-                    if((board[row][col] == player) && (board[row+1][col]  == player) && (board[row][col+2] == player) && (board[row][col+3]  == player) ){
-
-                    }
-                }
-            }
-
-
-        }
-
-        //Count up the number of occupied spaces on the board (count up how many tokens are currently played.
-
-        //check for tie
-        int counter = 0;
-        for (int row = 0; row < 6; row++) {
-            for (int col = 0; col < 7; col++) {
-                if(board[row][col]==1 || board[row][col]==2){                        //if, player 1 has a piece at board[row][col] or player 2 does => increment the counter by 1
-                    counter++;
-                }if(counter==42){                //check to see if counter==42. If it is, then it's a tie.
-                    return 3;
-                }
-            }
-        }
-
-        return 0;
-    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

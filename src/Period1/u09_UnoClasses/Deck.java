@@ -86,4 +86,10 @@ public class Deck {
         return s;
     }
 
+    public void draw(){
+        StdDraw.setPenColor(StdDraw.BLUE);
+        StdDraw.filledRectangle(70,50, 8, 12);
+
+    }
+
 }

@@ -5,12 +5,30 @@ public class Uno {
         Deck deck = new Deck();
         deck.shuffle();
 
-        Hand hand1 = new Hand(deck.drawStartingHand());
-        System.out.println(hand1);
+        Hand player1 = new Hand(deck.drawStartingHand());
+        Hand player2 = new Hand(deck.drawStartingHand());
 
-        //Hand hand2 = new Hand();
+        Discard discard = new Discard(deck.drawTopCard());
+
+        //Good place to start:
+        // 1. Figure out how to draw the deck.
+        // 2. Figure out how to draw the cards (cards are in different locations)
+
+        StdDraw.setXscale(-0.0, +100);
+        StdDraw.setYscale(-0.0, +100);
+        StdDraw.enableDoubleBuffering();
+
+        double timeElapsed = 0.017; //formerly called "dt". This is number of seconds between each frame of the animation -  0.017 milliseconds is the same as 60fps
+        while(true){
+            StdDraw.clear();
+
+            deck.draw();
 
 
+
+            StdDraw.show();
+            StdDraw.pause((int)(timeElapsed*1000));
+        }
 
     }
 

@@ -46,6 +46,13 @@ public class Card {
         return s;
     }
 
+    public void draw(int x, int y){
+        StdDraw.rectangle(70,50, 8, 12);
+        if(type.equals("numbered")){
+
+        }
+
+    }
 
 
 }

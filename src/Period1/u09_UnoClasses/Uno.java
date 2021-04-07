@@ -1,15 +1,38 @@
 package Period1.u09_UnoClasses;
 
+
 public class Uno {
     public static void main(String args[]){
         Deck deck = new Deck();
         deck.shuffle();
 
-        Hand hand1 = new Hand(deck.drawStartingHand());
-        System.out.println(hand1);
+        Hand player1 = new Hand(deck.drawStartingHand());
+        Hand player2 = new Hand(deck.drawStartingHand());
 
-        //Hand hand2 = new Hand();
+        Discard discard1 = new Discard(deck.drawTopCard());
 
+        //How do we implement the code for player 1 to play a card?
+        //User input?
+        //Format for the game
+
+        StdDraw.setXscale(-0.0, +100);
+        StdDraw.setYscale(-0.0, +100);
+        StdDraw.enableDoubleBuffering();
+
+        double timeElapsed = 0.017; //formerly called "dt". This is number of seconds between each frame of the animation -  0.017 milliseconds is the same as 60fps
+        while(true){
+            StdDraw.clear();
+
+            deck.draw();
+
+
+
+
+
+
+            StdDraw.show();
+            StdDraw.pause((int)(timeElapsed*1000));
+        }
 
 
     }

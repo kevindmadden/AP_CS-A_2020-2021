@@ -46,6 +46,9 @@ public class Card {
         return s;
     }
 
+    public void draw(int x, int y){
+        StdDraw.filledRectangle(x,y, 8, 12);
+    }
 
 
 }

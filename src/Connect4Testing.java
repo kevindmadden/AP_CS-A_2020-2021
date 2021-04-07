@@ -14,7 +14,7 @@ public class Connect4Testing {
 
     //set this to true to display the error messages you get when running with transposed matrix
     //set to false to display error messages for non-transposed matrix (the normal tests)
-    private static boolean areTransposedTestsPrimarilyWorking = false;
+    private static boolean areTransposedTestsPrimarilyWorking = true;
 
     public static void main(String args[]){
         int[][][][] tests = new int[][][][]{
