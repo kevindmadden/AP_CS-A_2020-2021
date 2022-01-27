@@ -43,6 +43,7 @@ public class Duck {
     // - Start of constructor  - - - - - - - - - - - - - - - - - - - - - -
 
     public Duck(){
+
         numOfTimesHonked=0;
         speechContent="honk!";
         isSwimming=true;

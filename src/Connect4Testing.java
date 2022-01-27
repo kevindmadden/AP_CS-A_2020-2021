@@ -166,6 +166,7 @@ public class Connect4Testing {
 
 
         int testNum = 0;
+        System.out.println("Here are the test results for what your checkForWinner method is returning for various board configurations: ");
         for(int[][][] test : tests){
             System.out.println("Test #"+testNum+"  ");
             printConductedTest(test);

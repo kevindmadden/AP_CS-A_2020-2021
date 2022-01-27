@@ -2,12 +2,12 @@ package Period2.u09_UnoClasses;
 
 import java.util.ArrayList;
 
-public class Deck {
+public class Deck{
     private ArrayList<Card> deck;
 
     public Deck(){
         deck = new ArrayList<Card>();
-
+        int a = Integer.MAX_VALUE;
         //adds numbered, reverse, skip cards
         String[] colors = {"red", "blue", "green", "yellow"};
         int[] numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -77,6 +77,7 @@ public class Deck {
         }
         return startingHand;
     }
+
 
     public String toString(){
         String s = "";
